@@ -39,11 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     ############# abc apps ##################
     'conversations.apps.ConversationsConfig',
+    'core.apps.CoreConfig',
     'lists.apps.ListsConfig',
     'reservations.apps.ReservationsConfig',
     'reviews.apps.ReviewsConfig',
     'rooms.apps.RoomsConfig',
     'users.apps.UsersConfig',
+    ####### 3rd party apps ########
+    "django_countries",
 ]
 
 MIDDLEWARE = [
