@@ -20,6 +20,5 @@ class Review(core_models.TimeStampedModel):
 
     def __str__(self):
         return f"{self.review} - {self.room}"
-
         # return self.room.host.username
         # # FK-객체-객체 연속 접근
