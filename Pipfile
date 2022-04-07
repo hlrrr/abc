@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==3.2.12"
-pillow = "*"
+Django = "==3.2.12"
+Pillow = "*"
 django-countries = "*"
 black = "*"
 
