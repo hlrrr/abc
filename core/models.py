@@ -11,6 +11,5 @@ class TimeStampedModel(models.Model):
     updated = models.DateField(auto_now=True)
 
 # DB에 반영되지 않도록 설정
-
     class Meta:
         abstract = True
