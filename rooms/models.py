@@ -65,13 +65,12 @@ class Room(core_models.TimeStampedModel):
     check_out = models.TimeField()
     instant_book = models. BooleanField(default=False)
     # one top many (user to rooms)
-    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
+    host = models.ForeignKey(user_models.User, related_name="rooms", on_delete=models.CASCADE)
     # host = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    roomtype = models.ForeignKey(
-        RoomType, on_delete=models.SET_NULL, null=True)
-    amenity = models.ManyToManyField(Amenity, blank=True)
-    facility = models.ManyToManyField(Facility, blank=True)
-    house_rules = models.ManyToManyField(HouseRule, blank=True)
+    roomtype = models.ForeignKey(RoomType, related_name="rooms", on_delete=models.SET_NULL, null=True)
+    amenity = models.ManyToManyField(Amenity, related_name="rooms", blank=True)
+    facility = models.ManyToManyField(Facility, related_name="rooms", blank=True)
+    house_rules = models.ManyToManyField(HouseRule, related_name="rooms", blank=True)
 
 # name값을 Rooom 이름으로 표출
     def __str__(self):
@@ -83,7 +82,7 @@ class Photo(core_models.TimeStampedModel):
 
     caption = models.CharField(max_length=120)
     file = models.ImageField()
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, related_name="photos", on_delete=models.CASCADE)
 
     # name값을 Rooom 이름으로 표출
     def __str__(self):
