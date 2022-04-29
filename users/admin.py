@@ -30,6 +30,13 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
 
+    list_display = (
+        'username', 'gender', 'language', 'currency', 'superhost'
+    )
+
+    list_filter = UserAdmin.list_filter + ("superhost",)
+    # list_filter = ("superhost",)
+
 
 # @admin.register(models.User)
 # class CustomUserAdmin(admin.ModelAdmin):
