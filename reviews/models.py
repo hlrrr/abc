@@ -23,3 +23,14 @@ class Review(core_models.TimeStampedModel):
 
         # return self.room.host.username
         # # FK-객체-객체 연속 접근
+
+    def rating_average(self):
+        avg = (
+            self.accuracy
+            + self.communication
+            + self.cleanliness
+            + self.location
+            + self.check_in
+            + self.value
+        ) / 6
+        return round(avg, 2)
